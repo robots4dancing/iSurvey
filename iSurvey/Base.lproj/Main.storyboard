@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iSurvey" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,118 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nL-yl-LYT">
+                                <rect key="frame" x="16" y="20" width="279" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bJF-je-Ocy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b77-NS-dgC">
+                                <rect key="frame" x="318" y="20" width="36" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oHM-rZ-AOp"/>
+                                    <constraint firstAttribute="width" constant="36" id="wUc-8e-YOk"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="pressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FQa-Tr-glI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2C-eH-X8x">
+                                <rect key="frame" x="16" y="49" width="338" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0HD-iy-huU">
+                                <rect key="frame" x="16" y="87" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2yL-wc-ehE"/>
+                                </connections>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZAi-aS-Xzo">
+                                <rect key="frame" x="16" y="125" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="valueChangedWithASwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="3KF-GZ-9a7"/>
+                                </connections>
+                            </switch>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" value="5" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-uc-vv1">
+                                <rect key="frame" x="16" y="164" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="valueChangedWithStepper:" destination="BYZ-38-t0r" eventType="valueChanged" id="bIF-CC-2ym"/>
+                                </connections>
+                            </stepper>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="5b8-Jy-5vB">
+                                <rect key="frame" x="14" y="201" width="342" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="valueChangedWithSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="u4f-8o-kmt"/>
+                                </connections>
+                            </slider>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Noz-sO-wJl">
+                                <rect key="frame" x="16" y="239" width="338" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Bad"/>
+                                    <segment title="Good"/>
+                                    <segment title="Awesome"/>
+                                </segments>
+                                <connections>
+                                    <action selector="valueChangedWithSegControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="CqV-lb-Yg3"/>
+                                </connections>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mby-5R-cPf">
+                                <rect key="frame" x="0.0" y="275" width="375" height="106"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="505792992.36509699">
+                                    <!--2017-01-11 02:03:12 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="valueChangedWithDatePicker:" destination="BYZ-38-t0r" eventType="valueChanged" id="yts-l0-R0M"/>
+                                </connections>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLx-9X-KHa">
+                                <rect key="frame" x="0.0" y="389" width="375" height="83"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="PA7-4K-rrp"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Imc-Wq-CrN"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="b77-NS-dgC" secondAttribute="trailing" constant="5" id="5qD-Lc-hpe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5nL-yl-LYT" secondAttribute="leading" id="Gxw-K7-JbI"/>
+                            <constraint firstItem="b77-NS-dgC" firstAttribute="leading" secondItem="5nL-yl-LYT" secondAttribute="trailing" constant="23" id="Ob6-SS-WwJ"/>
+                            <constraint firstItem="b77-NS-dgC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TPh-MV-une"/>
+                            <constraint firstItem="5nL-yl-LYT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="s0f-9A-wmp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="decorRatingSegControl" destination="Noz-sO-wJl" id="j9u-0H-kqk"/>
+                        <outlet property="servesAlcoholSwitch" destination="ZAi-aS-Xzo" id="qcx-IA-uab"/>
+                        <outlet property="serviceRatingSlider" destination="5b8-Jy-5vB" id="67J-ge-bQM"/>
+                        <outlet property="surveyNameLabel" destination="5nL-yl-LYT" id="cmf-8l-3fs"/>
+                        <outlet property="userFirstNameTextField" destination="x2C-eH-X8x" id="wD7-5s-uOH"/>
+                        <outlet property="userRatingStepper" destination="Iql-uc-vv1" id="j90-fd-eyp"/>
+                        <outlet property="zipCodeTextField" destination="0HD-iy-huU" id="Z1g-bm-98k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>
